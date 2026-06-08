@@ -5,7 +5,11 @@ from tensorflow.keras.preprocessing import image
 from PIL import Image
 
 # Load the trained model
-model = load_model("waste_classifier_model.h5")
+import os
+from tensorflow.keras.models import load_model
+
+model_path = os.path.join(os.path.dirname(__file__), "waste_classifier_model.h5")
+model = load_model(model_path)
 
 # Class labels
 class_names = ['biodegradable', 'recyclable', 'trash']
